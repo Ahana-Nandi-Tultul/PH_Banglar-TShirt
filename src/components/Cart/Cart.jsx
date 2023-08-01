@@ -15,7 +15,8 @@ const Cart = ({cart, removeItemFromCart}) => {
     }
     return (
         <div>
-            <h2>Order Summary</h2>
+            <h2 className={cart.length === 1 ? 'blue':'red'}>Order Summary</h2>
+            <p className={`bold ${cart.length === 1 ? 'orange' : 'green'}`}>Something</p>
             {message}
             {/* Conditional rendaring by ternary operator */}
             {

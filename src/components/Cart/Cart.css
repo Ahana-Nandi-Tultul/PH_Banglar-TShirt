@@ -4,3 +4,26 @@
     justify-content: center;
     align-items: center;
 }
+
+.red{
+    background-color: red;
+}
+.purple{
+    background-color: purple;
+}
+.blue{
+    background-color: blue;
+}
+.gray{
+    background-color:gray;
+}
+.green{
+    background-color: green;
+}
+.orange{
+    background-color: orange;
+}
+
+.bold{
+    font-weight: bold;
+}
