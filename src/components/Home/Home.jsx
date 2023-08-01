@@ -3,13 +3,24 @@ import { useLoaderData } from 'react-router-dom';
 import TShirt from '../TShirt/TShirt';
 import './Home.css';
 import Cart from '../Cart/Cart';
+import toast from 'react-hot-toast';
 
 const Home = () => {
     const tshirts = useLoaderData();
     const [cart, setCart] = useState([]);
+
+    const notify = () => toast('The product is already exist.');
+
     const handleAddToCart = tshirt => {
-        const newCart = [...cart, tshirt];
-        setCart(newCart);
+        const exist = cart.find(ts => ts._id === tshirt._id)
+        if(exist){
+            console.log(exist);
+            notify();
+        }
+        else{
+            const newCart = [...cart, tshirt];
+            setCart(newCart);
+        }
     }
 
     const removeItemFromCart = (id) => {
@@ -30,13 +41,9 @@ const Home = () => {
                 }
             </div>
             <div className='cart-container'>
-            <h2>Order Summary</h2>
-               {
-                cart.map(tshirt => <Cart 
-                    tshirt={tshirt}
-                    key= {tshirt._id}
-                    removeItemFromCart = {removeItemFromCart} ></Cart>)
-               }
+            <Cart
+            cart={cart}
+            removeItemFromCart = {removeItemFromCart}></Cart>
             </div>
         </div>
     );
