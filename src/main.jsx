@@ -11,6 +11,7 @@ import Home from './components/Home/Home.jsx';
 import ReviewOrder from './components/ReviewOrder/ReviewOrder.jsx';
 import About from './components/About/About.jsx';
 import Contact from './components/Contact/Contact.jsx';
+import Grandpa from './components/GrandPa/GrandPa.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
         element: <ReviewOrder></ReviewOrder>
       },
       {
+        path: 'grandpa',
+        element: <Grandpa></Grandpa>
+      },
+      {
         path: 'about',
         element: <About></About>
       },
@@ -41,5 +46,5 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <RouterProvider router={router}/>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
